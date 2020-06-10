@@ -41,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
            public void onClick(View v) {
                String user = mTextUsername.getText().toString().trim();
                String pwd = mTextPassword.getText().toString().trim();
-              // Boolean res = db.checkUser(user, pwd);
-               if(1 == 1)
+              Boolean res = db.checkUser(user, pwd);
+               if(res == true)
                {
                   Intent HomePage = new Intent(LoginActivity.this, HomeActivity.class);
                   startActivity(HomePage);
