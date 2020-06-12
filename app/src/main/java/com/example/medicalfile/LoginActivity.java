@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView;
+
 
 public class LoginActivity extends AppCompatActivity {
     EditText mTextUsername;
@@ -25,12 +27,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner Myspinner = (Spinner) findViewById(R.id.spinner) ;
+        final Spinner MySpinner = (Spinner) findViewById(R.id.spinner) ;
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(LoginActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Myspinner.setAdapter(myAdapter);
-        
+        MySpinner.setAdapter(myAdapter);
+
+
 
         db = new DatabaseHelper(this);
         mTextUsername = (EditText)findViewById(R.id.edittext_username);
@@ -53,8 +56,21 @@ public class LoginActivity extends AppCompatActivity {
               Boolean res = db.checkUser(user, pwd);
                if(res == true)
                {
-                  Intent HomePage = new Intent(LoginActivity.this, HomeActivity.class);
-                  startActivity(HomePage);
+
+                   if (MySpinner.getSelectedItem().toString().equals("Medic"))
+                   {
+
+                       Intent MedicPage = new Intent(LoginActivity.this, MedicActivity.class);
+                       startActivity(MedicPage);
+                   }
+
+                   if (MySpinner.getSelectedItem().toString().equals("Client"))
+                   {
+
+                       Intent ClientPage = new Intent(LoginActivity.this, ClientActivity.class);
+                       startActivity(ClientPage);
+                   }
+
                }
                else
                {
