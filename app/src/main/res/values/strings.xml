@@ -8,4 +8,9 @@
     <string name="already_registered">Already Registered?</string>
     <string name="register">register</string>
 
+    <string-array name="names">
+        <item>Client</item>
+        <item>Medic</item>
+    </string-array>
+
 </resources>
