@@ -12,15 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ClientActivity extends AppCompatActivity {
 
     Button b1;
 
+    String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
+
+        TextView name= findViewById(R.id.textView6);
+
+        userName= this.getIntent().getStringExtra("COL_2");
+        name.setText(userName);
 
     }
 
