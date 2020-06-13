@@ -3,43 +3,99 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".ClientActivity"
     >
 
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/presc" />
+        android:layout_height="260dp">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_weight="1"
-        android:text="TextView" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="52dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/background" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="162dp"
+            android:layout_height="162dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/usericon1" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:text="Garbuz Dinu"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <Button
         android:id="@+id/button1"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
-        android:text="creare fisa medicala" />
+
+        android:background="@drawable/buttcolor"
+        android:text="Fisa medicala" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
+
+        android:background="@drawable/buttcolor"
+
+
+
+
         android:text="contact medic" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+
+        android:background="@drawable/buttcolor"
+        android:text="Info" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+android:layout_marginBottom="50dp"
+        android:background="@drawable/buttcolor"
+
+        android:text="Log Out" />
 </LinearLayout>
