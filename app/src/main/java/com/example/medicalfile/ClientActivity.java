@@ -3,6 +3,8 @@ package com.example.medicalfile;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,31 +28,10 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
 
-        TextView name= findViewById(R.id.textView6);
 
-        userName= this.getIntent().getStringExtra("COL_2");
-        name.setText(userName);
-
-        buttonFisaMedicala = (Button) findViewById(R.id.button1);
-        buttonFisaMedicala.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent fisaMedicala = new Intent(ClientActivity.this, FisaMedicala.class);
-
-                startActivity(fisaMedicala);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.fragment_container, new ClientFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
-        });
-
-        buttonInfoCloent = (Button) findViewById(R.id.button3);
-        buttonInfoCloent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent infoClient = new Intent(ClientActivity.this, infoClient.class);
-
-                startActivity(infoClient);
-            }
-        });
-    }
-
-
-}
+        }
