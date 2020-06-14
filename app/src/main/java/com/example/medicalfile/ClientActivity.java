@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 public class ClientActivity extends AppCompatActivity {
 
-    Button b1;
-
+    Button buttonFisaMedicala;
+    Button buttonInfoCloent;
     String userName;
 
     @Override
@@ -31,21 +31,25 @@ public class ClientActivity extends AppCompatActivity {
         userName= this.getIntent().getStringExtra("COL_2");
         name.setText(userName);
 
-    }
+        buttonFisaMedicala = (Button) findViewById(R.id.button1);
+        buttonFisaMedicala.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fisaMedicala = new Intent(ClientActivity.this, FisaMedicala.class);
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_fisa_medicala, container, false);
-
-        b1 = v.findViewById(R.id.button1);
-
-        b1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
-                startActivity(new Intent(ClientActivity.this,FisaMedicala.class));
-        }
+                startActivity(fisaMedicala);
+            }
         });
 
-        return v;
+        buttonInfoCloent = (Button) findViewById(R.id.button3);
+        buttonInfoCloent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent infoClient = new Intent(ClientActivity.this, infoClient.class);
+
+                startActivity(infoClient);
+            }
+        });
     }
 
 
