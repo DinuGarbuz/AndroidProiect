@@ -36,12 +36,20 @@
         android:drawableLeft="@drawable/password"
         android:hint="@string/password" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Password"
+        android:id="@+id/checkbox_password"/>
+
     <Button
         android:id="@+id/button_login"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:text="@string/login"/>
+
+
     
     <LinearLayout
         android:layout_width="wrap_content"

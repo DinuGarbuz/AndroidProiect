@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonLogin;
     TextView mTextViewRegister;
     DatabaseHelper db;
+    CheckBox checkBox;
 
 
     @Override
@@ -40,6 +45,21 @@ public class LoginActivity extends AppCompatActivity {
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
         mButtonLogin = (Button) findViewById(R.id.button_login);
         mTextViewRegister = (TextView) findViewById(R.id.textview_register);
+        checkBox = (CheckBox)findViewById(R.id.checkbox_password);
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    mTextPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else
+                {
+                    mTextPassword.setTransformationMethod((PasswordTransformationMethod.getInstance()));
+                }
+            }
+        });
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
