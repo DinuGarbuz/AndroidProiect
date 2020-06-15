@@ -18,6 +18,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     DatabaseHelper db;
     EditText mTextUsername;
+    EditText mTextMail;
+    EditText mTextPhone;
     EditText mTextPassword;
     EditText mTextCnfPassword;
     Button mButtonRegister;
@@ -30,6 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         db = new DatabaseHelper(this);
         mTextUsername = (EditText)findViewById(R.id.edittext_username);
+        mTextMail = (EditText)findViewById(R.id.edittext_mail);
+        mTextPhone = (EditText)findViewById(R.id.edittext_phone);
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
         mTextCnfPassword = (EditText)findViewById(R.id.edittext_cnf_password);
         mButtonRegister = (Button) findViewById(R.id.button_register);
@@ -64,12 +68,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user = mTextUsername.getText().toString().trim();
+                String mail = mTextMail.getText().toString().trim();
+                String phone = mTextPhone.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pdw = mTextCnfPassword.getText().toString().trim();
 
                 if(pwd.equals(cnf_pdw))
                 {
-                   long val = db.addUser(user, pwd);
+                   long val = db.addUser(user, pwd, mail, phone);
                    if(val > 0)
                    {
                        Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
