@@ -46,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         mButtonLogin = (Button) findViewById(R.id.button_login);
         mTextViewRegister = (TextView) findViewById(R.id.textview_register);
         checkBox = (CheckBox)findViewById(R.id.checkbox_password);
+        mTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

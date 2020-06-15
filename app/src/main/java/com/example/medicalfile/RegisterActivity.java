@@ -40,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         mTextViewLogin = (TextView) findViewById(R.id.textview_login);
         checkBox = findViewById(R.id.checkbox_password_register);
 
+        mTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        mTextCnfPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {

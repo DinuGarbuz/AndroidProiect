@@ -9,15 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
 
 
 public class ClientFragment extends Fragment {
+
+
+    EditText mTextClientName;
 
     private Button butonFisaMedicala;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_client, container, false);
+
+
 
         butonFisaMedicala = view.findViewById(R.id.button_fisa_medicala);
         butonFisaMedicala.setOnClickListener(new View.OnClickListener() {
@@ -30,4 +37,6 @@ public class ClientFragment extends Fragment {
         });
         return view;
     }
+
+
 }
