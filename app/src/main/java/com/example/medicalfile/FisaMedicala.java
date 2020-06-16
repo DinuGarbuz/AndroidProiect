@@ -30,7 +30,7 @@ public class FisaMedicala extends Fragment {
 
 
         mListView = (ListView) view.findViewById(R.id.listView);
-      //  db = new DatabaseHelper(this);
+      //db = new DatabaseHelper(this);
 
         populateListView();
         return view;
