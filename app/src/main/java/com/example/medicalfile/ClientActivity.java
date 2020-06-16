@@ -39,9 +39,9 @@ public class ClientActivity extends AppCompatActivity {
         mButtonInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(ClientActivity.this, Fisa.class);
+                Intent intent = new Intent(ClientActivity.this, InfouserActivity.class);
 
-                startActivity(registerIntent);
+                startActivity(intent);
             }
         });
         mButtonContactMedic.setOnClickListener(new View.OnClickListener() {
@@ -53,10 +53,19 @@ public class ClientActivity extends AppCompatActivity {
             }
         });
 
-        mButtonLogout.setOnClickListener(new View.OnClickListener() {
+        mButtonContactMedic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ClientActivity.this, LoginActivity.class);
+                Intent intent = new Intent(ClientActivity.this, ContactMedicActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+        mButtonFisaMedicala.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientActivity.this, Fisa.class);
 
                 startActivity(intent);
             }

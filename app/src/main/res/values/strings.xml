@@ -23,5 +23,12 @@
 
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
+    <string name="age">age</string>
+    <string name="sex">sex</string>
+    <string name="height">height</string>
+    <string name="weight">weight</string>
+    <string name="blood">blood</string>
+    <string name="geneticdiseases">geneticDiseases</string>
+    <string name="save">save</string>
 
 </resources>

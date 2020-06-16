@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".completareFisaActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/edittext_age"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+
+        android:hint="@string/age" />
+
+    <EditText
+        android:id="@+id/edittext_sex"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="@string/sex" />
+    <EditText
+        android:id="@+id/edittext_height"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="@string/height" />
+
+    <EditText
+        android:id="@+id/edittext_weight"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="@string/weight" />
+
+    <EditText
+        android:id="@+id/edittext_blood"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="@string/blood" />
+
+    <EditText
+        android:id="@+id/edittext_geneticDiseases"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="@string/geneticdiseases" />
+    <EditText
+        android:id="@+id/edittext_allergens"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+
+        android:hint="allergens" />
+
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/save"/>
+</LinearLayout>

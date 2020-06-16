@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -12,7 +11,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class Fisa extends AppCompatActivity {
+public class InfouserActivity extends AppCompatActivity {
 
     DatabaseHelper db ;
     EditText mTextMail;
@@ -20,8 +19,7 @@ public class Fisa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fisa);
-
+        setContentView(R.layout.activity_infouser);
         mListView = (ListView)findViewById(R.id.listView);
         mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
         db = new DatabaseHelper(this);
@@ -34,7 +32,7 @@ public class Fisa extends AppCompatActivity {
     {
 //        mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
 //        String asd = mTextMail.getText().toString();
-        Cursor data = db.getFisa();
+        Cursor data = db.getName("a");
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {
@@ -43,19 +41,11 @@ public class Fisa extends AppCompatActivity {
             listData.add(aux);
             aux = "Last name: " + data.getString(2);
             listData.add(aux);
-            aux = "Age:  " + data.getString(3);
+            aux = "Mail:  " + data.getString(4);
             listData.add(aux);
-            aux = "Sex:  " + data.getString(4);
+            aux = "Phone:  " + data.getString(5);
             listData.add(aux);
-            aux = "Hight:  " + data.getString(5);
-            listData.add(aux);
-            aux = "Weight:  " + data.getString(5);
-            listData.add(aux);
-            aux = "Blood:  " + data.getString(6);
-            listData.add(aux);
-            aux = "Genetic:  " + data.getString(7);
-            listData.add(aux);
-            aux = "Allergens:  " + data.getString(8);
+            aux = "Password:  " + data.getString(3);
             listData.add(aux);
         }
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
