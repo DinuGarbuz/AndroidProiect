@@ -21,7 +21,7 @@ public class FisaMedicala extends Fragment {
 
     private static final String TAG = "FisaMedicala";
 
-    DatabaseHelper db;
+    DatabaseHelper db ;
 
     private ListView mListView;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class FisaMedicala extends Fragment {
 
 
         mListView = (ListView) view.findViewById(R.id.listView);
-      //db = new DatabaseHelper(this);
+        //db = new DatabaseHelper(this);
 
         populateListView();
         return view;
@@ -39,7 +39,7 @@ public class FisaMedicala extends Fragment {
     private void populateListView()
     {
         Log.d(TAG, "Populate Listview: Displaying data in the ListView");
-        Cursor data = mDatabaseHelper.getData();
+        Cursor data = db.getData();
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {

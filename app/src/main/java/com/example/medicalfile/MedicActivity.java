@@ -13,7 +13,7 @@ public class MedicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medic);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, new MedicFragment());
+       // fragmentTransaction.add(R.id.fragment_container, new MedicFragment());
         fragmentTransaction.commit();
     }
 }

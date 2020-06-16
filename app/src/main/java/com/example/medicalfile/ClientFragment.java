@@ -1,5 +1,6 @@
 package com.example.medicalfile;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +18,7 @@ public class ClientFragment extends Fragment {
 
 
     EditText mTextClientName;
-
+    Button mButtonInfo;
     private Button butonFisaMedicala;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,18 +26,23 @@ public class ClientFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_client, container, false);
 
 
-
+        mButtonInfo = view.findViewById(R.id.button_info);
         butonFisaMedicala = view.findViewById(R.id.button_fisa_medicala);
         butonFisaMedicala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.fragment_container, new FisaMedicala());
+              //  fragmentTransaction.add(R.id.fragment_container, new FisaMedicala());
                 fragmentTransaction.commit();
             }
         });
+
+
+
         return view;
     }
+
+
 
 
 }

@@ -20,7 +20,7 @@ import android.widget.TextView;
 public class ClientActivity extends AppCompatActivity {
 
     Button buttonFisaMedicala;
-    Button buttonInfoCloent;
+    Button mButtonInfo;
     String userName;
 
     @Override
@@ -28,10 +28,16 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
 
+        mButtonInfo= (Button) findViewById(R.id.button_info);
 
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.add(R.id.fragment_container, new ClientFragment());
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+
+        mButtonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerIntent = new Intent(ClientActivity.this, Fisa.class);
+
+                startActivity(registerIntent);
+            }
+        });
             }
         }
