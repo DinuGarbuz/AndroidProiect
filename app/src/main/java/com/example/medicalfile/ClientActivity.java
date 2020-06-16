@@ -19,7 +19,9 @@ import android.widget.TextView;
 
 public class ClientActivity extends AppCompatActivity {
 
-    Button buttonFisaMedicala;
+    Button mButtonContactMedic;
+    Button mButtonFisaMedicala;
+    Button mButtonLogout;
     Button mButtonInfo;
     String userName;
 
@@ -28,7 +30,10 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
 
-        mButtonInfo= (Button) findViewById(R.id.button_info);
+        mButtonInfo = (Button) findViewById(R.id.button_info);
+        mButtonFisaMedicala = (Button) findViewById(R.id.button_fisaMedicala);
+        mButtonContactMedic = (Button) findViewById(R.id.button_contactMedic);
+        mButtonLogout = (Button) findViewById(R.id.button_logout);
 
 
         mButtonInfo.setOnClickListener(new View.OnClickListener() {
@@ -39,5 +44,22 @@ public class ClientActivity extends AppCompatActivity {
                 startActivity(registerIntent);
             }
         });
+        mButtonContactMedic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientActivity.this, ContactMedicActivity.class);
+
+                startActivity(intent);
             }
-        }
+        });
+
+        mButtonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientActivity.this, LoginActivity.class);
+
+                startActivity(intent);
+            }
+        });
+    }
+}

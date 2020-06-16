@@ -18,5 +18,7 @@
     <string name="telefon">telefon</string>
     <string name="mail">mail</string>
     <string name="phone">phone</string>
+    <string name="logout">logout</string>
+    <string name="log_out">LOG out</string>
 
 </resources>

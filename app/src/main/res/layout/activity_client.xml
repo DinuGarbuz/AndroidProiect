@@ -51,10 +51,12 @@
             app:layout_constraintStart_toStartOf="parent" />
 
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button_fisa_medicala"
+        android:id="@+id/button_fisaMedicala"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_marginTop="280dp"
@@ -66,7 +68,7 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_contactMedic"
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_marginTop="350dp"
@@ -85,13 +87,15 @@
         android:background="@drawable/buttcolor"
         android:text="Info" />
 
-
-
-
-
-
-
-
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="490dp"
+        android:background="@drawable/buttcolor"
+        android:text="@string/log_out" />
 
 
 </FrameLayout>

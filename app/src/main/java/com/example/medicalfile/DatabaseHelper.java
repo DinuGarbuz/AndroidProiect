@@ -75,4 +75,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return  data;
     }
 
+    public Cursor getName(int id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = 1";
+        Cursor data = db.rawQuery(query, null);
+        return  data;
+    }
+
 }
