@@ -9,19 +9,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="register.db";
+    public static final String DATABASE_NAME="user.db";
     public static final String TABLE_NAME="registeruser";
     public static final String COL_1="ID";
     public static final String COL_2="username";
     public static final String COL_3="password";
+    public static final String COL_4="mail";
+    public static final String COL_5="phone";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE registeruser (ID INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
+        db.execSQL("CREATE TABLE registeruser (ID INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, mail TEXT, phone TEXT)");
 
     }
 
@@ -31,12 +34,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long addUser(String user, String password)
+    public long addUser(String user, String password, String mail, String phone)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", user);
         contentValues.put("password", password);
+        contentValues.put("mail", mail);
+        contentValues.put("phone", phone);
+
         long res = db.insert ("registeruser", null, contentValues);
         db.close();
         return res;
@@ -60,4 +66,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    public Cursor getData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor data = db.rawQuery(query, null);
+        return  data;
+    }
+
 }
