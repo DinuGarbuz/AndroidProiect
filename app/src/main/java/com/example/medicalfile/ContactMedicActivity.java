@@ -34,7 +34,10 @@ public class ContactMedicActivity extends AppCompatActivity {
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {
-            listData.add(data.getString(1));
+            String aux = "";
+            aux = data.getString(1) + " " + data.getString(2) + " - "+ data.getString(5);
+
+            listData.add(aux);
         }
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         mListView.setAdapter( adapter);

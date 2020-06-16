@@ -17,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView;
 
+import java.io.File;
+import java.io.IOException;
+
 
 public class LoginActivity extends AppCompatActivity {
     EditText mTextMail;
@@ -25,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView mTextViewRegister;
     DatabaseHelper db;
     CheckBox checkBox;
+
 
 
     @Override
@@ -78,6 +82,17 @@ public class LoginActivity extends AppCompatActivity {
               Boolean res = db.checkUser(mail, pwd);
                if(res == true)
                {
+//                   File f = new File("current_user.txt");
+//
+//                   if(f.exists()){
+//                       f.delete();
+//                       try {
+//                           f.createNewFile();
+//                       } catch (IOException e) {
+//                           e.printStackTrace();
+//                       }
+//                   }
+
 
                    if (MySpinner.getSelectedItem().toString().equals("Medic"))
                    {
@@ -100,6 +115,8 @@ public class LoginActivity extends AppCompatActivity {
                }
            }
        });
+
+
 
     }
 }

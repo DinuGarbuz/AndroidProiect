@@ -55,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         String[] columns = {COL_1};
         SQLiteDatabase db = getReadableDatabase();
-        String selection = COL_2 + "=?" + " and " + COL_3 + "=?";
+        String selection = COL_5 + "=?" + " and " + COL_4 + "=?";
         String[] selectionArgs = {mail, password};
         Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
         int count = cursor.getCount();
@@ -77,12 +77,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return  data;
     }
 
-    public Cursor getName(int id)
-    {
+    public Cursor getName(String mail) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = 1";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE mail = "+"'"+ mail +"'";
+
         Cursor data = db.rawQuery(query, null);
         return  data;
+
+
+//        String[] columns = {COL_1};
+//        SQLiteDatabase db = getReadableDatabase();
+//        String selection = COL_5 + "=?" + " and " + COL_4 + "=?";
+//        String[] selectionArgs = {mail, password};
+//        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+//        int count = cursor.getCount();
+//        String query = "SELECT * FROM " + TABLE_NAME + " WHERE ID = 1";
+//        cursor.close();
+//        db.close();
     }
 
 }

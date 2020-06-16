@@ -31,8 +31,8 @@ public class MedicActivity extends AppCompatActivity {
     private void populateListView()
     {
 
-        Cursor data = db.getName(1);
-      mMedicName.setText(data.getString(1));
+       // Cursor data = db.getName(1);
+     // mMedicName.setText(data.getString(1));
 
 
 
