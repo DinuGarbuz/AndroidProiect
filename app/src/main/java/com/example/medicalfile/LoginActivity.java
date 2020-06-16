@@ -19,7 +19,7 @@ import android.widget.AdapterView;
 
 
 public class LoginActivity extends AppCompatActivity {
-    EditText mTextUsername;
+    EditText mTextMail;
     EditText mTextPassword;
     Button mButtonLogin;
     TextView mTextViewRegister;
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         db = new DatabaseHelper(this);
-        mTextUsername = (EditText)findViewById(R.id.edittext_username);
+        mTextMail = (EditText)findViewById(R.id.edittext_mail);
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
         mButtonLogin = (Button) findViewById(R.id.button_login);
         mTextViewRegister = (TextView) findViewById(R.id.textview_register);
@@ -73,9 +73,9 @@ public class LoginActivity extends AppCompatActivity {
        mButtonLogin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               String user = mTextUsername.getText().toString().trim();
+               String mail = mTextMail.getText().toString().trim();
                String pwd = mTextPassword.getText().toString().trim();
-              Boolean res = db.checkUser(user, pwd);
+              Boolean res = db.checkUser(mail, pwd);
                if(res == true)
                {
 

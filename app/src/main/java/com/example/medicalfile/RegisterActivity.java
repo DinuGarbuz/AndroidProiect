@@ -17,7 +17,8 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
 
     DatabaseHelper db;
-    EditText mTextUsername;
+    EditText mTextFirstname;
+    EditText mTextLastname;
     EditText mTextMail;
     EditText mTextPhone;
     EditText mTextPassword;
@@ -31,7 +32,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         db = new DatabaseHelper(this);
-        mTextUsername = (EditText)findViewById(R.id.edittext_username);
+        mTextFirstname = (EditText)findViewById(R.id.edittext_firstname);
+        mTextLastname = (EditText)findViewById(R.id.edittext_lastname);
         mTextMail = (EditText)findViewById(R.id.edittext_mail);
         mTextPhone = (EditText)findViewById(R.id.edittext_phone);
         mTextPassword = (EditText)findViewById(R.id.edittext_password);
@@ -69,7 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = mTextUsername.getText().toString().trim();
+                String firstname = mTextFirstname.getText().toString().trim();
+                String lastname = mTextLastname.getText().toString().trim();
                 String mail = mTextMail.getText().toString().trim();
                 String phone = mTextPhone.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
@@ -77,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(pwd.equals(cnf_pdw))
                 {
-                   long val = db.addUser(user, pwd, mail, phone);
+                   long val = db.addUser(firstname, lastname, pwd, mail, phone);
                    if(val > 0)
                    {
                        Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();

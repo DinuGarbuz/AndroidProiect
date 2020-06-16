@@ -12,17 +12,24 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_height="150dp"
+        android:layout_height="60dp"
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/edittext_username"
+        android:id="@+id/edittext_firstname"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:drawableLeft="@drawable/username"
-        android:hint="@string/username" />
+        android:hint="@string/first_name" />
 
+    <EditText
+        android:id="@+id/edittext_lastname"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/username"
+        android:hint="@string/last_name" />
     <EditText
         android:id="@+id/edittext_mail"
         android:layout_width="150dp"

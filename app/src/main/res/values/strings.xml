@@ -21,4 +21,7 @@
     <string name="logout">logout</string>
     <string name="log_out">LOG out</string>
 
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+
 </resources>

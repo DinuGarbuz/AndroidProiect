@@ -36,6 +36,7 @@ public class Fisa extends AppCompatActivity {
         while(data.moveToNext())
         {
             listData.add(data.getString(1));
+            listData.add(data.getString(2));
         }
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         mListView.setAdapter( adapter);
