@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                    if (MySpinner.getSelectedItem().toString().equals("Client"))
                    {
 
-                       Intent ClientPage = new Intent(LoginActivity.this, completareFisaActivity.class);
+                       Intent ClientPage = new Intent(LoginActivity.this, ClientActivity.class);
                        startActivity(ClientPage);
                    }
 

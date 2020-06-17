@@ -9,9 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="File.db";
+    public static final String DATABASE_NAME="Medic.db";
     public static final String TABLE_NAME="client";
     public static final String TABLE_Fisa="fisaMedicala";
+    public static final String TABLE_MEDIC="medic";
     public static final String COL_1="ID";
     public static final String COL_2="firstname";
     public static final String COL_3="lastname";
@@ -27,6 +28,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE client (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, password TEXT, mail TEXT, phone TEXT)");
+
+        db.execSQL("CREATE TABLE medic (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, password TEXT, mail TEXT, phone TEXT)");
 
         db.execSQL("CREATE TABLE fisaMedicala (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, " +
                 "age TEXT, sex TEXT, height TEXT, weight TEXT, blood TEXT,  geneticDiseases TEXT, allergens TEXT, clientID INTEGER)");
@@ -49,6 +52,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("phone", phone);
 
         long res = db.insert ("client", null, contentValues);
+        db.close();
+        return res;
+
+    }
+
+    public long addMedic(String firstname, String lastname, String password, String mail, String phone)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("firstname", firstname);
+        contentValues.put("lastname",lastname);
+        contentValues.put("password", password);
+        contentValues.put("mail", mail);
+        contentValues.put("phone", phone);
+
+        long res = db.insert ("medic", null, contentValues);
         db.close();
         return res;
 
@@ -99,6 +118,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor data = db.rawQuery(query, null);
+        return  data;
+    }
+
+    public Cursor getMedic()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_MEDIC;
         Cursor data = db.rawQuery(query, null);
         return  data;
     }

@@ -32,7 +32,7 @@ public class InfouserActivity extends AppCompatActivity {
     {
 //        mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
 //        String asd = mTextMail.getText().toString();
-        Cursor data = db.getName("a");
+        Cursor data = db.getName("dinu");
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {

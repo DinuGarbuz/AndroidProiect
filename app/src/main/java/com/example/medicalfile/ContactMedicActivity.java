@@ -30,7 +30,7 @@ public class ContactMedicActivity extends AppCompatActivity {
     private void populateListView()
     {
 
-        Cursor data = db.getData();
+        Cursor data = db.getMedic();
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {
