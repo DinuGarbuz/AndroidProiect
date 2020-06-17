@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".completareFisaActivity"
     android:gravity="center_horizontal"
+    android:background="@drawable/background6"
     android:orientation="vertical">
 
     <ImageView

@@ -70,5 +70,13 @@ public class ClientActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mButtonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ClientActivity.this, LoginActivity.class);
+                startActivityForResult(intent,2);
+            }
+        });
     }
 }
