@@ -78,7 +78,8 @@ public class RegisterActivity extends AppCompatActivity {
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pdw = mTextCnfPassword.getText().toString().trim();
 
-                if(pwd.equals(cnf_pdw))
+
+                if(pwd.equals(cnf_pdw) && mail.contains("@") && mail.contains(".") && phone.matches("[0-9]+") && phone.length() == 10)
                 {
                    long val = db.addUser(firstname, lastname, pwd, mail, phone);
                    if(val > 0)
@@ -93,9 +94,19 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 }
-                else
+                if(!pwd.equals(cnf_pdw))
                 {
                     Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
+                }
+
+                if(!mail.contains("@") || !mail.contains("."))
+                {
+                    Toast.makeText(RegisterActivity.this, "Mail is invalid", Toast.LENGTH_SHORT).show();
+                }
+
+                if(!phone.contains("[0-9]+") && phone.length() != 10)
+                {
+                    Toast.makeText(RegisterActivity.this, "Phone number is invalid", Toast.LENGTH_SHORT).show();
                 }
             }
         });
