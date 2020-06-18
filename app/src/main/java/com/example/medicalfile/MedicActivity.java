@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,7 +23,7 @@ public class MedicActivity extends AppCompatActivity {
     Button mButtonLogout;
     DatabaseHelper db ;
     TextView mMedicName;
-    ListView mListView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,12 @@ public class MedicActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         populateListView();
+
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = mPreferences.edit();
+
+        String name = mPreferences.getString(getString(R.string.mail), "");
+        mMedicName.setText(name);
 
 
         mButtonLogout = (Button) findViewById(R.id.button_logout);
