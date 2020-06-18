@@ -32,7 +32,8 @@ public class Fisa extends AppCompatActivity {
 
 
         String mail = mPreferences.getString(getString(R.string.mail), "");
-        populateListView(4);
+        int id = Integer.parseInt(getID(mail));
+        populateListView(id);
         //getID(mail);
 
 

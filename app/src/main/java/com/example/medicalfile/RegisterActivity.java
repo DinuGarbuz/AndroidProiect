@@ -3,7 +3,9 @@ package com.example.medicalfile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -26,6 +28,9 @@ public class RegisterActivity extends AppCompatActivity {
     Button mButtonRegister;
     TextView mTextViewLogin;
     CheckBox checkBox;
+
+    private SharedPreferences mPreferences;
+    private SharedPreferences.Editor mEditor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,10 @@ public class RegisterActivity extends AppCompatActivity {
         mButtonRegister = (Button) findViewById(R.id.button_register);
         mTextViewLogin = (TextView) findViewById(R.id.textview_login);
         checkBox = findViewById(R.id.checkbox_password_register);
+
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        //mPreferences = getSharedPreferences("com.example.medicalfile", Context.MODE_PRIVATE);
+        mEditor = mPreferences.edit();
 
         mTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
         mTextCnfPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
@@ -84,6 +93,10 @@ public class RegisterActivity extends AppCompatActivity {
                    long val = db.addUser(firstname, lastname, pwd, mail, phone);
                    if(val > 0)
                    {
+                       String mailuser = mTextMail.getText().toString();
+                       mEditor.putString(getString(R.string.mail), mailuser);
+                       mEditor.commit();
+
                        Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
                        Intent moveToLogin = new Intent(RegisterActivity.this, completareFisaActivity.class);
                        startActivity(moveToLogin);}
