@@ -2,9 +2,10 @@ package com.example.medicalfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
+import android.preference.PreferenceManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -26,15 +27,22 @@ public class Fisa extends AppCompatActivity {
         mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
         db = new DatabaseHelper(this);
 
-        populateListView();
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = mPreferences.edit();
+
+
+        String mail = mPreferences.getString(getString(R.string.mail), "");
+        populateListView(4);
+        //getID(mail);
+
 
     }
 
-    private void populateListView()
+    private void populateListView(int id)
     {
 //        mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
 //        String asd = mTextMail.getText().toString();
-        Cursor data = db.getFisa();
+        Cursor data = db.getFisa(id);
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {
@@ -61,6 +69,26 @@ public class Fisa extends AppCompatActivity {
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         mListView.setAdapter( adapter);
 
+
+    }
+
+    private String getID(String mail)
+    {
+        Cursor data = db.getName(mail);
+        //ArrayList<String> listData = new ArrayList<>();
+        String id = "";
+        while(data.moveToNext())
+        {
+
+            id =  data.getString(0);
+            int aux = Integer.parseInt(id);
+            int a =aux;
+
+
+        }
+      //  ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
+      //  mListView.setAdapter( adapter);
+        return id;
 
     }
 }

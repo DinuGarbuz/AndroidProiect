@@ -2,8 +2,10 @@ package com.example.medicalfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -24,15 +26,21 @@ public class InfouserActivity extends AppCompatActivity {
         mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
         db = new DatabaseHelper(this);
 
-        populateListView();
+
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = mPreferences.edit();
+
+
+        String mail = mPreferences.getString(getString(R.string.mail), "");
+        populateListView(mail);
 
     }
 
-    private void populateListView()
+    private void populateListView(String mail)
     {
 //        mTextMail= (EditText)findViewById(R.id.edittext_mail) ;
 //        String asd = mTextMail.getText().toString();
-        Cursor data = db.getName("dinu");
+        Cursor data = db.getName(mail);
         ArrayList<String> listData = new ArrayList<>();
         while(data.moveToNext())
         {

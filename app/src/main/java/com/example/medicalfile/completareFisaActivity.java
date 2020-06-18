@@ -3,13 +3,17 @@ package com.example.medicalfile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class completareFisaActivity extends AppCompatActivity {
+
 
     DatabaseHelper db;
     EditText mTextAge;
@@ -35,6 +39,12 @@ public class completareFisaActivity extends AppCompatActivity {
         mTextAllergens = (EditText)findViewById(R.id.edittext_allergens);
         mButtonSave = (Button) findViewById(R.id.button_save);
 
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = mPreferences.edit();
+
+
+        final String mail = mPreferences.getString(getString(R.string.mail), "");
+
         mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,12 +58,31 @@ public class completareFisaActivity extends AppCompatActivity {
 
 
 
-                long val = db.addFisaMedicala("Dinu", "Garbuz", age, sex, height, weight, blood, genetic, allergens, 1);
+                int clientID = getID(mail);
+                long val = db.addFisaMedicala("Dinu", "Garbuz", age, sex, height, weight, blood, genetic, allergens, clientID);
 
                 Intent intent = new Intent(completareFisaActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
 
         });
+
+
+    }
+    private int getID(String mail)
+    {
+        Cursor data = db.getName(mail);
+        String id = "";
+        int aux = 0;
+        while(data.moveToNext())
+        {
+
+            id =  data.getString(0);
+             aux = Integer.parseInt(id);
+            int a =aux;
+
+        }
+        return aux;
+
     }
 }

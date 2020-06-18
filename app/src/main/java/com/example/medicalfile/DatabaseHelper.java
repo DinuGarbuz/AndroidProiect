@@ -140,9 +140,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    public Cursor getFisa() {
+    public Cursor getFisa(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_Fisa;//";
+        String query = "SELECT * FROM " + TABLE_Fisa + " WHERE mail = " + "id";
 
         Cursor data = db.rawQuery(query, null);
         return data;

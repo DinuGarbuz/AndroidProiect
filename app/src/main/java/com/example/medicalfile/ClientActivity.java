@@ -1,20 +1,14 @@
 package com.example.medicalfile;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.preference.PreferenceManager;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class ClientActivity extends AppCompatActivity {
@@ -23,7 +17,8 @@ public class ClientActivity extends AppCompatActivity {
     Button mButtonFisaMedicala;
     Button mButtonLogout;
     Button mButtonInfo;
-    String userName;
+   TextView mTextViewName;
+    DatabaseHelper db ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +29,16 @@ public class ClientActivity extends AppCompatActivity {
         mButtonFisaMedicala = (Button) findViewById(R.id.button_fisaMedicala);
         mButtonContactMedic = (Button) findViewById(R.id.button_contactMedic);
         mButtonLogout = (Button) findViewById(R.id.button_logout);
+        mTextViewName = (TextView)findViewById(R.id.edittext_TextClientName) ;
+
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = mPreferences.edit();
+
+
+        String mail = mPreferences.getString(getString(R.string.mail), "");
+        //String aux = setName(mail);
+        mTextViewName.setText(mail);
+
 
 
         mButtonInfo.setOnClickListener(new View.OnClickListener() {
@@ -78,5 +83,19 @@ public class ClientActivity extends AppCompatActivity {
                 startActivityForResult(intent,2);
             }
         });
+
+
     }
+
+    private String setName(String mail) {
+        String aux = "";
+        Cursor data = db.getName(mail);
+        while (data.moveToNext()) {
+            //aux = "";
+            aux = data.getString(1) ;//+ " " + data.getString(2);
+        }
+        return aux;
+    }
+
+
 }
