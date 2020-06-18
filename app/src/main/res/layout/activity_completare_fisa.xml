@@ -23,8 +23,8 @@
 
         android:hint="@string/age" />
 
-    <EditText
-        android:id="@+id/edittext_sex"
+    <Spinner
+        android:id="@+id/spinner_sex"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -46,8 +46,8 @@
 
         android:hint="@string/weight" />
 
-    <EditText
-        android:id="@+id/edittext_blood"
+    <Spinner
+        android:id="@+id/spinner_blood"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
