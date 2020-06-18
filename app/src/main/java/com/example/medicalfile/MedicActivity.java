@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class MedicActivity extends AppCompatActivity {
 
     Button mButtonLogout;
+    Button mButtonInfo;
     DatabaseHelper db ;
     TextView mMedicName;
 
@@ -30,6 +31,8 @@ public class MedicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_medic);
         mMedicName = (TextView) findViewById(R.id.edittext_medicName);
         db = new DatabaseHelper(this);
+        mButtonLogout = (Button) findViewById(R.id.button_logout);
+        mButtonInfo = (Button) findViewById(R.id.button_info);
 
         populateListView();
 
@@ -40,7 +43,15 @@ public class MedicActivity extends AppCompatActivity {
         mMedicName.setText(name);
 
 
-        mButtonLogout = (Button) findViewById(R.id.button_logout);
+        mButtonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MedicActivity.this, InfouserActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
 
         mButtonLogout.setOnClickListener(new View.OnClickListener() {
             @Override

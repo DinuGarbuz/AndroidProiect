@@ -9,10 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="Medic.db";
+    public static final String DATABASE_NAME="MedicFileFinal.db";
     public static final String TABLE_NAME="client";
     public static final String TABLE_Fisa="fisaMedicala";
     public static final String TABLE_MEDIC="medic";
+    public static final String TABLE_INFOMEDIC="infomedic";
     public static final String COL_1="ID";
     public static final String COL_2="firstname";
     public static final String COL_3="lastname";
@@ -31,8 +32,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE medic (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, password TEXT, mail TEXT, phone TEXT)");
 
-        db.execSQL("CREATE TABLE fisaMedicala (ID INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT, " +
-                "age TEXT, sex TEXT, height TEXT, weight TEXT, blood TEXT,  geneticDiseases TEXT, allergens TEXT, clientID INTEGER)");
+        db.execSQL("CREATE TABLE fisaMedicala (ID INTEGER PRIMARY KEY AUTOINCREMENT, age TEXT, " +
+                "sex TEXT, height TEXT, weight TEXT, blood TEXT,  geneticDiseases TEXT, allergens TEXT, clientID INTEGER)");
+
+        db.execSQL("CREATE TABLE infomedic (ID INTEGER PRIMARY KEY AUTOINCREMENT, age TEXT, " +
+                "sex TEXT, specialitatea TEXT, experienta TEXT, medicID INTEGER)");
     }
 
     @Override
@@ -73,14 +77,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public long addFisaMedicala(String firstname, String lastname, String age , String sex ,
+    public long addFisaMedicala( String age , String sex ,
                                 String height , String weight , String blood , String geneticDiseases , String allergens, int clientID )
 
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("firstname", firstname);
-        contentValues.put("lastname",lastname);
+
         contentValues.put("age", age);
         contentValues.put("sex", sex);
         contentValues.put("height", height);
@@ -91,6 +94,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("clientID", clientID);
 
         long res = db.insert ("fisaMedicala", null, contentValues);
+        db.close();
+        return res;
+
+    }
+
+    public long addInfoMedic( String age , String sex ,
+                                 String specialitatea , String experienta , int medicID )
+
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("age", age);
+        contentValues.put("sex", sex);
+        contentValues.put("specialitatea", specialitatea);
+        contentValues.put("experienta", experienta);
+        contentValues.put("medicID", medicID);
+
+        long res = db.insert ("infomedic", null, contentValues);
         db.close();
         return res;
 

@@ -48,23 +48,19 @@ public class Fisa extends AppCompatActivity {
         while(data.moveToNext())
         {
             String aux = "";
-            aux = "Name: " + data.getString(1);
+            aux = "Age:  " + data.getString(1);
             listData.add(aux);
-            aux = "Last name: " + data.getString(2);
+            aux = "Sex:  " + data.getString(2);
             listData.add(aux);
-            aux = "Age:  " + data.getString(3);
+            aux = "Hight:  " + data.getString(3);
             listData.add(aux);
-            aux = "Sex:  " + data.getString(4);
+            aux = "Weight:  " + data.getString(4);
             listData.add(aux);
-            aux = "Hight:  " + data.getString(5);
+            aux = "Blood:  " + data.getString(5);
             listData.add(aux);
-            aux = "Weight:  " + data.getString(6);
+            aux = "Genetic:  " + data.getString(6);
             listData.add(aux);
-            aux = "Blood:  " + data.getString(7);
-            listData.add(aux);
-            aux = "Genetic:  " + data.getString(8);
-            listData.add(aux);
-            aux = "Allergens:  " + data.getString(9);
+            aux = "Allergens:  " + data.getString(7);
             listData.add(aux);
         }
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);

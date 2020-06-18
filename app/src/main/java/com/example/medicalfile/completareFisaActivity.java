@@ -74,7 +74,7 @@ public class completareFisaActivity extends AppCompatActivity {
 
 
                 int clientID = getID(mail);
-                long val = db.addFisaMedicala("Dinu", "Garbuz", age, sex, height, weight, blood, genetic, allergens, clientID);
+                long val = db.addFisaMedicala(age, sex, height, weight, blood, genetic, allergens, clientID);
 
                 Intent intent = new Intent(completareFisaActivity.this, LoginActivity.class);
                 startActivity(intent);
