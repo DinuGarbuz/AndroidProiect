@@ -82,9 +82,16 @@ public class LoginActivity extends AppCompatActivity {
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
 
-                startActivity(registerIntent);
+                if (MySpinner.getSelectedItem().toString().equals("Medic"))
+                {
+                    Toast.makeText(LoginActivity.this, "You cant register as Medic", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+
+                    startActivity(registerIntent);
+                }
             }
         });
        mButtonLogin.setOnClickListener(new View.OnClickListener() {
