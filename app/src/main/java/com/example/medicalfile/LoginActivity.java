@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
 
                      if(res == true) {
 
-                         String mailuser = mTextMail.getText().toString();
+                         String mailuser = mTextMail.getText().toString().trim();
                          mEditor.putString(getString(R.string.mail), mailuser);
                          mEditor.commit();
 
@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                        if(res == true) {
 
 
-                           String mailuser = mTextMail.getText().toString();
+                           String mailuser = mTextMail.getText().toString().trim();
                            mEditor.putString(getString(R.string.mail), mailuser);
                            mEditor.commit();
 

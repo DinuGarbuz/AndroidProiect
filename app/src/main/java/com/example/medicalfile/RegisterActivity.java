@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pdw = mTextCnfPassword.getText().toString().trim();
 
-                String mailVerific = mTextMail.getText().toString();
+                String mailVerific = mTextMail.getText().toString().trim();
                 Boolean res = db.checkMail(mailVerific);
                 if(res == true)
                 {
@@ -101,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
                         long val = db.addUser(firstname, lastname, pwd, mail, phone);
                         if (val > 0) {
 
-                            String mailuser = mTextMail.getText().toString();
+                            String mailuser = mTextMail.getText().toString().trim();
                             mEditor.putString(getString(R.string.mail), mailuser);
                             mEditor.commit();
 
