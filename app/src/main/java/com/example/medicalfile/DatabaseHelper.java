@@ -186,6 +186,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return  data;
     }
 
+    public Cursor getInfoClient()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_Fisa;
+        Cursor data = db.rawQuery(query, null);
+        return  data;
+    }
+
 
 
     public Cursor getName(String mail) {

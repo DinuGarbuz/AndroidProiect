@@ -43,7 +43,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/nrTelefon"
+        android:id="@+id/experienta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -51,7 +51,21 @@
 
         android:layout_marginRight="12dp"
         android:layout_toRightOf="@id/imageView"
-        android:text="1234567890"
+        android:text=""
         android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/nrTelefon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="115dp"
+
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@id/imageView"
+        android:text=""
+        android:textSize="20dp" />
+
+
 
 </RelativeLayout>

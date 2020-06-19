@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ContactClientActivity"></activity>
+        <activity android:name=".FisaPtMedicActivity"></activity>
+        <activity android:name=".ContactClientActivity" />
         <activity android:name=".MedicAccountActivity" />
         <activity android:name=".InfoMedicActivity" />
         <activity android:name=".completareFisaActivity" />

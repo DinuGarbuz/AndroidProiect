@@ -68,6 +68,7 @@ public class ContactMedicActivity extends AppCompatActivity {
             Cursor data = db.getMedic();
 
             ArrayList<String> names = new ArrayList<String>();
+            ArrayList<String> experientas = new ArrayList<String>();
             ArrayList<String> numbers = new ArrayList<String>();
             ArrayList<String> specialitates = new ArrayList<String>();
             ArrayList<Integer> images = new ArrayList<>();
@@ -75,6 +76,7 @@ public class ContactMedicActivity extends AppCompatActivity {
             ImageView mPoza = v.findViewById(R.id.imageView);
             TextView mNume = v.findViewById(R.id.nume);
             TextView mSpecialitate = v.findViewById(R.id.specialitatea);
+            TextView mExperienta = v.findViewById(R.id.experienta);
             TextView mNrTel = v.findViewById(R.id.nrTelefon);
 
 
@@ -83,6 +85,7 @@ public class ContactMedicActivity extends AppCompatActivity {
                 names.add(data.getString(1)+" "+ data.getString(2));
                 numbers.add(data.getString(5));
                 specialitates.add(data.getString(8));
+                experientas.add("Experienta: " + data.getString(9));
                 images.add(R.drawable.medic);
             }
 
@@ -90,6 +93,7 @@ public class ContactMedicActivity extends AppCompatActivity {
                 mNume.setText(names.get(position));
                 mNrTel.setText(numbers.get(position));
                 mSpecialitate.setText(specialitates.get(position));
+                mExperienta.setText(experientas.get((position)));
 
 
             return v;

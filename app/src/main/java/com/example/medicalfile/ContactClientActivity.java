@@ -2,10 +2,12 @@ package com.example.medicalfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 
 public class ContactClientActivity extends AppCompatActivity {
 
+    int Id;
     DatabaseHelper db ;
     private ListView mListView;
     @Override
@@ -31,6 +34,18 @@ public class ContactClientActivity extends AppCompatActivity {
 
         ContactClientActivity.CustomAdaptor customAdaptor = new ContactClientActivity.CustomAdaptor();
         mListView.setAdapter(customAdaptor);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), FisaPtMedicActivity.class);
+                Id = position +1;
+                intent.putExtra("id", Id);
+
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -65,29 +80,31 @@ public class ContactClientActivity extends AppCompatActivity {
             View v=getLayoutInflater().inflate(R.layout.customlayout,null);
             Cursor data = db.getClient();
 
+
             ArrayList<String> names = new ArrayList<String>();
+
             ArrayList<String> numbers = new ArrayList<String>();
-         //   ArrayList<String> boli = new ArrayList<String>();
+
             ArrayList<Integer> images = new ArrayList<>();
 
             ImageView mPoza = v.findViewById(R.id.imageView);
             TextView mNume = v.findViewById(R.id.nume);
-         //  TextView mBoala = v.findViewById(R.id.specialitatea);
-            TextView mNrTel = v.findViewById(R.id.nrTelefon);
+
+            TextView mNrTel = v.findViewById(R.id.specialitatea);
 
 
 
             while(data.moveToNext()) {
                 names.add(data.getString(1)+" "+ data.getString(2));
                 numbers.add(data.getString(5));
-            //    boli.add("asd");
+
                 images.add(R.drawable.usericon1);
             }
 
             mPoza.setImageResource(images.get(position));
             mNume.setText(names.get(position));
             mNrTel.setText(numbers.get(position));
-         //   mBoala.setText(boli.get(position));
+
 
 
             return v;
