@@ -89,38 +89,43 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-                if(pwd.equals(cnf_pdw) && mail.contains("@") && mail.contains(".") && phone.matches("[0-9]+") && phone.length() == 10)
+                String mailVerific = mTextMail.getText().toString();
+                Boolean res = db.checkMail(mailVerific);
+                if(res == true)
                 {
-                   long val = db.addUser(firstname, lastname, pwd, mail, phone);
-                   if(val > 0)
-                   {
-                       String mailuser = mTextMail.getText().toString();
-                       mEditor.putString(getString(R.string.mail), mailuser);
-                       mEditor.commit();
-
-                       Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
-                       Intent moveToLogin = new Intent(RegisterActivity.this, completareFisaActivity.class);
-                       startActivity(moveToLogin);}
-                   else
-                   {
-                       Toast.makeText(RegisterActivity.this, "Registration Error", Toast.LENGTH_SHORT).show();
-                   }
-
-
+                    Toast.makeText(RegisterActivity.this, "Mail exists", Toast.LENGTH_SHORT).show();
                 }
-                if(!pwd.equals(cnf_pdw))
-                {
-                    Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
-                }
+                else {
 
-                if(!mail.contains("@") || !mail.contains("."))
-                {
-                    Toast.makeText(RegisterActivity.this, "Mail is invalid", Toast.LENGTH_SHORT).show();
-                }
 
-                if(!phone.contains("[0-9]+") && phone.length() != 10)
-                {
-                    Toast.makeText(RegisterActivity.this, "Phone number is invalid", Toast.LENGTH_SHORT).show();
+                    if (pwd.equals(cnf_pdw) && mail.contains("@") && mail.contains(".") && phone.matches("[0-9]+") && phone.length() == 10) {
+                        long val = db.addUser(firstname, lastname, pwd, mail, phone);
+                        if (val > 0) {
+
+                            String mailuser = mTextMail.getText().toString();
+                            mEditor.putString(getString(R.string.mail), mailuser);
+                            mEditor.commit();
+
+                            // Toast.makeText(RegisterActivity.this, "You have registered", Toast.LENGTH_SHORT).show();
+                            Intent moveToLogin = new Intent(RegisterActivity.this, completareFisaActivity.class);
+                            startActivity(moveToLogin);
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "Registration Error", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                    if (!pwd.equals(cnf_pdw)) {
+                        Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if (!mail.contains("@") || !mail.contains(".")) {
+                        Toast.makeText(RegisterActivity.this, "Mail is invalid", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if (!phone.contains("[0-9]+") && phone.length() != 10) {
+                        Toast.makeText(RegisterActivity.this, "Phone number is invalid", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

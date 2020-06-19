@@ -143,6 +143,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public boolean checkMail(String mail)
+    {
+        String[] columns = {COL_1};
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = COL_5 + "=?" ;
+        String[] selectionArgs = {mail};
+        Cursor cursor = db.query(TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+
+        if(count>0)
+
+            return  true;
+        else
+            return false;
+    }
+
     public boolean checkMedic(String mail, String password)
     {
         String[] columns = {COL_1};
