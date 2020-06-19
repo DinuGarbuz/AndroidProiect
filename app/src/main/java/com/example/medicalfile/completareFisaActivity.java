@@ -92,7 +92,7 @@ public class completareFisaActivity extends AppCompatActivity {
                 String height = mHeightSpinner.getSelectedItem().toString().trim();
                 String weight = mWeightSpinner.getSelectedItem().toString().trim();
                 String blood = mBloodSpinner.getSelectedItem().toString().trim();
-                String genetic= mTextGeneticDiseases.getText().toString().trim();
+                String genetic= mDiseasesSpinner.getSelectedItem().toString().trim();
                 String allergens= mAllergensSpinner.getSelectedItem().toString().trim();
 
 
