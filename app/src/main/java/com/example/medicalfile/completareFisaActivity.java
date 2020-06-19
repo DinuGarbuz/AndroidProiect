@@ -18,13 +18,6 @@ public class completareFisaActivity extends AppCompatActivity {
 
 
     DatabaseHelper db;
-    EditText mTextAge;
-    EditText mTextSex;
-    EditText mTextWeight;
-    EditText mTextHeight;
-    EditText mTextBlood;
-    EditText mTextGeneticDiseases;
-    EditText mTextAllergens;
     Button mButtonSave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
