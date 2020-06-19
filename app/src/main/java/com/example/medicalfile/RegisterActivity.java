@@ -88,6 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String cnf_pdw = mTextCnfPassword.getText().toString().trim();
 
 
+
                 if(pwd.equals(cnf_pdw) && mail.contains("@") && mail.contains(".") && phone.matches("[0-9]+") && phone.length() == 10)
                 {
                    long val = db.addUser(firstname, lastname, pwd, mail, phone);

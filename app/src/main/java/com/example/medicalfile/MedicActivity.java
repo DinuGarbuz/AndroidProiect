@@ -21,7 +21,9 @@ import java.util.ArrayList;
 public class MedicActivity extends AppCompatActivity {
 
     Button mButtonLogout;
-    Button mButtonInfo;
+    Button mButtonInformatie;
+    Button mButtonSetariCont;
+    Button mButtonPacienti;
     DatabaseHelper db ;
     TextView mMedicName;
 
@@ -32,9 +34,10 @@ public class MedicActivity extends AppCompatActivity {
         mMedicName = (TextView) findViewById(R.id.edittext_medicName);
         db = new DatabaseHelper(this);
         mButtonLogout = (Button) findViewById(R.id.button_logout);
-        mButtonInfo = (Button) findViewById(R.id.button_info);
+        mButtonInformatie = (Button) findViewById(R.id.button_medicInfo);
+        mButtonSetariCont = (Button) findViewById(R.id.button_setariCont);
+        mButtonPacienti = (Button) findViewById(R.id.button_pacienti);
 
-        populateListView();
 
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = mPreferences.edit();
@@ -43,10 +46,28 @@ public class MedicActivity extends AppCompatActivity {
         mMedicName.setText(name);
 
 
-        mButtonInfo.setOnClickListener(new View.OnClickListener() {
+        mButtonSetariCont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MedicActivity.this, InfouserActivity.class);
+                Intent intent = new Intent(MedicActivity.this, MedicAccountActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+        mButtonInformatie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MedicActivity.this, InfoMedicActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
+        mButtonPacienti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MedicActivity.this, ContactClientActivity.class);
 
                 startActivity(intent);
             }
@@ -62,13 +83,5 @@ public class MedicActivity extends AppCompatActivity {
         });
 
     }
-    private void populateListView()
-    {
-
-       // Cursor data = db.getName(1);
-     // mMedicName.setText(data.getString(1));
-
-
-
-    }
 }
+

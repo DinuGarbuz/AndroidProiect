@@ -92,26 +92,38 @@ public class LoginActivity extends AppCompatActivity {
            public void onClick(View v) {
                String mail = mTextMail.getText().toString().trim();
                String pwd = mTextPassword.getText().toString().trim();
-              Boolean res = db.checkUser(mail, pwd);
-               if(res == true)
+
+               if (MySpinner.getSelectedItem().toString().equals("Medic"))
                {
+                     Boolean res = db.checkMedic(mail, pwd);
 
-                   String mailuser = mTextMail.getText().toString();
-                   mEditor.putString(getString(R.string.mail), mailuser);
-                   mEditor.commit();
+                     if(res == true) {
 
-                   if (MySpinner.getSelectedItem().toString().equals("Medic"))
+                         String mailuser = mTextMail.getText().toString();
+                         mEditor.putString(getString(R.string.mail), mailuser);
+                         mEditor.commit();
+
+
+                         Intent MedicPage = new Intent(LoginActivity.this, MedicActivity.class);
+                         startActivity(MedicPage);
+                     }
+
+               }
+
+               if (MySpinner.getSelectedItem().toString().equals("Client"))
                    {
+                       Boolean res = db.checkUser(mail, pwd);
+                       if(res == true) {
 
-                       Intent MedicPage = new Intent(LoginActivity.this, MedicActivity.class);
-                       startActivity(MedicPage);
-                   }
 
-                   if (MySpinner.getSelectedItem().toString().equals("Client"))
-                   {
+                           String mailuser = mTextMail.getText().toString();
+                           mEditor.putString(getString(R.string.mail), mailuser);
+                           mEditor.commit();
 
-                       Intent ClientPage = new Intent(LoginActivity.this, ClientActivity.class);
-                       startActivity(ClientPage);
+
+                           Intent ClientPage = new Intent(LoginActivity.this, ClientActivity.class);
+                           startActivity(ClientPage);
+
                    }
 
                }

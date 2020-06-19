@@ -56,36 +56,36 @@ android:layout_height="260dp">
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 <Button
-android:id="@+id/button_vizionare_fise"
+android:id="@+id/button_pacienti"
 android:layout_width="170dp"
 android:layout_height="50dp"
 android:layout_marginTop="280dp"
 android:background="@drawable/buttcolor2"
 android:layout_gravity="center_horizontal"
-android:text="Vizualizare fise medicale"
+android:text="Pacienti"
 android:layout_weight="1"
     />
 
 
 <Button
-android:id="@+id/button_editare_contact"
+android:id="@+id/button_medicInfo"
 android:layout_width="170dp"
 android:layout_height="50dp"
 android:layout_marginTop="350dp"
 android:layout_weight="1"
 android:layout_gravity="center_horizontal"
 android:background="@drawable/buttcolor2"
-android:text="editare contact" />
+android:text="Informatie" />
 
 <Button
-android:id="@+id/button_info"
+android:id="@+id/button_setariCont"
 android:layout_gravity="center_horizontal"
 android:layout_weight="1"
 android:layout_width="170dp"
 android:layout_height="50dp"
 android:layout_marginTop="420dp"
 android:background="@drawable/buttcolor2"
-android:text="Info" />
+android:text="Setari cont" />
 
 <Button
 android:id="@+id/button_logout"

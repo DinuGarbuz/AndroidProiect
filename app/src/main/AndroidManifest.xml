@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".completareFisaActivity"></activity>
+        <activity android:name=".ContactClientActivity"></activity>
+        <activity android:name=".MedicAccountActivity" />
+        <activity android:name=".InfoMedicActivity" />
+        <activity android:name=".completareFisaActivity" />
         <activity android:name=".InfouserActivity" />
         <activity android:name=".ContactMedicActivity" />
         <activity android:name=".Fisa" />
