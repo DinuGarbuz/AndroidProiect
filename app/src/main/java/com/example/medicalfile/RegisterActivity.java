@@ -87,8 +87,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pdw = mTextCnfPassword.getText().toString().trim();
 
-
-
                 String mailVerific = mTextMail.getText().toString();
                 Boolean res = db.checkMail(mailVerific);
                 if(res == true)
@@ -98,7 +96,8 @@ public class RegisterActivity extends AppCompatActivity {
                 else {
 
 
-                    if (pwd.equals(cnf_pdw) && !pwd.isEmpty() && !cnf_pdw.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty()&& mail.contains("@") && mail.contains(".") && phone.matches("[0-9]+") && phone.length() == 10) {
+                    if (pwd.equals(cnf_pdw) && !pwd.isEmpty() && !cnf_pdw.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty()&&
+                            !mail.isEmpty() && mail.contains("@") && mail.contains(".") && phone.matches("[0-9]+") && phone.length() == 10) {
                         long val = db.addUser(firstname, lastname, pwd, mail, phone);
                         if (val > 0) {
 
@@ -145,6 +144,11 @@ public class RegisterActivity extends AppCompatActivity {
                     if(lastname.isEmpty())
                     {
                         Toast.makeText(RegisterActivity.this, "lastname field is empty", Toast.LENGTH_SHORT).show();
+                    }
+
+                    if(mail.isEmpty())
+                    {
+                        Toast.makeText(RegisterActivity.this, "mail field is empty", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
