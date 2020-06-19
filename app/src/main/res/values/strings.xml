@@ -14,11 +14,28 @@
     </string-array>
 
     <string-array name="sex">
+        <item>sex</item>
         <item>Male</item>
         <item>Female</item>
     </string-array>
 
+    <string-array name="age">
+        <item>varsta</item>
+        <item>-5</item>
+        <item>6-10</item>
+        <item>11-15</item>
+        <item>16-20</item>
+        <item>21-30</item>
+        <item>31-40</item>
+        <item>41-50</item>
+        <item>51-60</item>
+        <item>61-70</item>
+        <item>71-80</item>
+        <item>81+</item>
+    </string-array>
+
     <string-array name="blood">
+        <item>grupa de sange</item>
         <item>0-</item>
         <item>0+</item>
         <item>B-</item>
@@ -27,6 +44,54 @@
         <item>A+</item>
         <item>AB-</item>
         <item>AB+</item>
+    </string-array>
+
+    <string-array name="height">
+        <item>inaltimea</item>
+        <item>- 1.30</item>
+        <item>1.31 - 1.40</item>
+        <item>1.41 - 1.50</item>
+        <item>1.51 - 1.60</item>
+        <item>1.61 - 1.70</item>
+        <item>1.71 - 1.80</item>
+        <item>1.81 - 1.90</item>
+        <item>1.91 - 2.00</item>
+        <item>2.00 +</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>greutatea</item>
+        <item>- 40kg</item>
+        <item>41kg - 50kg</item>
+        <item>51kg - 60kg</item>
+        <item>61kg - 70kg</item>
+        <item>71kg - 80kg</item>
+        <item>81kg - 90kg</item>
+        <item>91kg - 100kg</item>
+        <item>101kg - 120kg</item>
+        <item>200kg +</item>
+    </string-array>
+
+    <string-array name="diseases">
+        <item>boli genetice</item>
+        <item>niciuna</item>
+        <item>Albinism</item>
+        <item>Sindromul Down</item>
+        <item>Sindromul Tourette</item>
+        <item>Sindromul Williams</item>
+        <item>Sindromul Angleman</item>
+        <item>Sindromul Apert</item>
+        <item>alt sindrom</item>
+    </string-array>
+
+    <string-array name="allergens">
+        <item>alergeni</item>
+        <item>niciunul</item>
+        <item>par de animale</item>
+        <item>praf</item>
+        <item>mancare (lapte/oua/peste/alune)</item>
+        <item>intepaturi de insecta</item>
+        <item>altele</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

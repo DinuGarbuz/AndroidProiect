@@ -32,29 +32,53 @@ public class completareFisaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_completare_fisa);
 
         db = new DatabaseHelper(this);
-        mTextAge = (EditText)findViewById(R.id.edittext_age);
-        //mTextSex = (EditText)findViewById(R.id.edittext_sex);
-        mTextHeight = (EditText)findViewById(R.id.edittext_height);
-        mTextWeight = (EditText)findViewById(R.id.edittext_weight);
-        //mTextBlood = (EditText)findViewById(R.id.edittext_blood);
-        mTextGeneticDiseases = (EditText)findViewById(R.id.edittext_geneticDiseases);
-        mTextAllergens = (EditText)findViewById(R.id.edittext_allergens);
         mButtonSave = (Button) findViewById(R.id.button_save);
 
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = mPreferences.edit();
 
-        final Spinner mSexSpinner = findViewById(R.id.spinner_sex);
+
+        final Spinner mAgeSpinner = findViewById(R.id.spinner_age);
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(completareFisaActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.age));
+        myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mAgeSpinner.setAdapter(myAdapter1);
+
+        final Spinner mSexSpinner = findViewById(R.id.spinner_sex);
+        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(completareFisaActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.sex));
         myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSexSpinner.setAdapter(myAdapter1);
+        mSexSpinner.setAdapter(myAdapter2);
+
+        final Spinner mHeightSpinner = findViewById(R.id.spinner_height);
+        ArrayAdapter<String> myAdapter3 = new ArrayAdapter<String>(completareFisaActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.height));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mHeightSpinner.setAdapter(myAdapter3);
+
+        final Spinner mWeightSpinner = findViewById(R.id.spinner_weight);
+        ArrayAdapter<String> myAdapter4 = new ArrayAdapter<String>(completareFisaActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.weight));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mWeightSpinner.setAdapter(myAdapter4);
 
         final Spinner mBloodSpinner = findViewById(R.id.spinner_blood);
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(completareFisaActivity.this,
+        ArrayAdapter<String> myAdapter5 = new ArrayAdapter<String>(completareFisaActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.blood));
         myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mBloodSpinner.setAdapter(myAdapter2);
+        mBloodSpinner.setAdapter(myAdapter5);
+
+        final Spinner mDiseasesSpinner = findViewById(R.id.spinner_geneticDiseases);
+        ArrayAdapter<String> myAdapter6 = new ArrayAdapter<String>(completareFisaActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.diseases));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       mDiseasesSpinner.setAdapter(myAdapter6);
+
+        final Spinner mAllergensSpinner = findViewById(R.id.spinner_allergens);
+        ArrayAdapter<String> myAdapter7 = new ArrayAdapter<String>(completareFisaActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.allergens));
+        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mAllergensSpinner.setAdapter(myAdapter7);
 
         final String mail = mPreferences.getString(getString(R.string.mail), "");
 
@@ -63,13 +87,13 @@ public class completareFisaActivity extends AppCompatActivity {
         mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String age = mTextAge.getText().toString().trim();
+                String age = mAgeSpinner.getSelectedItem().toString().trim();
                 String sex = mSexSpinner.getSelectedItem().toString().trim();
-                String height = mTextHeight.getText().toString().trim();
-                String weight = mTextWeight.getText().toString().trim();
+                String height = mHeightSpinner.getSelectedItem().toString().trim();
+                String weight = mWeightSpinner.getSelectedItem().toString().trim();
                 String blood = mBloodSpinner.getSelectedItem().toString().trim();
                 String genetic= mTextGeneticDiseases.getText().toString().trim();
-                String allergens= mTextAllergens.getText().toString().trim();
+                String allergens= mAllergensSpinner.getSelectedItem().toString().trim();
 
 
 

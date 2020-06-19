@@ -15,8 +15,8 @@
         android:layout_height="60dp"
         app:srcCompat="@drawable/logo" />
 
-    <EditText
-        android:id="@+id/edittext_age"
+    <Spinner
+        android:id="@+id/spinner_age"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
@@ -30,16 +30,16 @@
         android:layout_marginTop="10dp"
 
         android:hint="@string/sex" />
-    <EditText
-        android:id="@+id/edittext_height"
+    <Spinner
+        android:id="@+id/spinner_height"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
 
         android:hint="@string/height" />
 
-    <EditText
-        android:id="@+id/edittext_weight"
+    <Spinner
+        android:id="@+id/spinner_weight"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
@@ -54,15 +54,15 @@
 
         android:hint="@string/blood" />
 
-    <EditText
-        android:id="@+id/edittext_geneticDiseases"
+    <Spinner
+        android:id="@+id/spinner_geneticDiseases"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
 
         android:hint="@string/geneticdiseases" />
-    <EditText
-        android:id="@+id/edittext_allergens"
+    <Spinner
+        android:id="@+id/spinner_allergens"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
