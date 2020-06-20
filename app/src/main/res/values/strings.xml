@@ -14,14 +14,14 @@
     </string-array>
 
     <string-array name="sex">
-        <item>sex</item>
+
         <item>Male</item>
         <item>Female</item>
     </string-array>
 
     <string-array name="age">
-        <item>varsta</item>
-        <item>-5</item>
+
+        <item>0-5</item>
         <item>6-10</item>
         <item>11-15</item>
         <item>16-20</item>
@@ -35,7 +35,7 @@
     </string-array>
 
     <string-array name="blood">
-        <item>grupa de sange</item>
+
         <item>0-</item>
         <item>0+</item>
         <item>B-</item>
@@ -47,8 +47,8 @@
     </string-array>
 
     <string-array name="height">
-        <item>inaltimea</item>
-        <item>- 1.30</item>
+
+        <item>0 - 1.30</item>
         <item>1.31 - 1.40</item>
         <item>1.41 - 1.50</item>
         <item>1.51 - 1.60</item>
@@ -60,8 +60,8 @@
     </string-array>
 
     <string-array name="weight">
-        <item>greutatea</item>
-        <item>- 40kg</item>
+
+        <item>0kg - 40kg</item>
         <item>41kg - 50kg</item>
         <item>51kg - 60kg</item>
         <item>61kg - 70kg</item>
@@ -73,7 +73,7 @@
     </string-array>
 
     <string-array name="diseases">
-        <item>boli genetice</item>
+
         <item>niciuna</item>
         <item>Albinism</item>
         <item>Sindromul Down</item>
@@ -85,7 +85,7 @@
     </string-array>
 
     <string-array name="allergens">
-        <item>alergeni</item>
+
         <item>niciunul</item>
         <item>par de animale</item>
         <item>praf</item>
