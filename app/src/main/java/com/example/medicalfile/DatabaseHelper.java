@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="MedicFile.db";
+    public static final String DATABASE_NAME="MedicalFile.db";
     public static final String TABLE_NAME="client";
     public static final String TABLE_Fisa="fisaMedicala";
     public static final String TABLE_MEDIC="medic";

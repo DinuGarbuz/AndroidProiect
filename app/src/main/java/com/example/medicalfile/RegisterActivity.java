@@ -101,6 +101,12 @@ public class RegisterActivity extends AppCompatActivity {
                         long val = db.addUser(firstname, lastname, pwd, mail, phone);
                         if (val > 0) {
 
+//                            db.addMedic("Ion", "Nicolae", "ion", "ion@gmail.com", "0711443355", "45", "Male", "Cardiolog", "15 ani");
+//                            db.addMedic("Dragos", "Lazar", "lazar", "lazar@gmail.com", "0711123355", "57", "Male", "Chirurg", "17 ani");
+//                            db.addMedic("Lorena", "Maftei", "lorena", "lorena@gmail.com", "0711444567", "32", "Female", "Dentist", "5 ani");
+//                            db.addMedic("Florin", "Sacadat", "florin", "florin@gmail.com", "0798763355", "78", "Male", "Oftamolog", "45 ani");
+//                            db.addMedic("Reni", "Kajcsa", "reni", "reni@gmail.com", "0711915355", "30", "Female", "Pediatru", "3 ani");
+//                            db.addMedic("Gigi", "Beschea", "gigi", "gigi@gmail.com", "0711454375", "44", "Male", "Psihiatru", "10 ani");
                             String mailuser = mTextMail.getText().toString().trim();
                             mEditor.putString(getString(R.string.mail), mailuser);
                             mEditor.commit();

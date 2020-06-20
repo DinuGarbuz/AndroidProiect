@@ -114,8 +114,17 @@ public class LoginActivity extends AppCompatActivity {
                          Intent MedicPage = new Intent(LoginActivity.this, MedicActivity.class);
                          startActivity(MedicPage);
                      }
+                     else
+                     {
+                         Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
+                     }
 
                }
+
+//               else
+//               {
+//                   Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
+//               }
 
                if (MySpinner.getSelectedItem().toString().equals("Client"))
                    {
@@ -132,12 +141,16 @@ public class LoginActivity extends AppCompatActivity {
                            startActivity(ClientPage);
 
                    }
+                       else
+                       {
+                           Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
+                       }
 
                }
-               else
-               {
-                   Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
-               }
+//               else
+//               {
+//                   Toast.makeText(LoginActivity.this, "Login Error", Toast.LENGTH_SHORT).show();
+//               }
            }
        });
 
